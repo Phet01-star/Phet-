@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour
 
     void Start()
     {
-        gamemanager = FindAnyObjectByType<Gamemanager>();
+        // gamemanager = FindAnyObjectByType<Gamemanager>();
         // Start the infinite spawning loop
         StartCoroutine(SpawnRoutine());
     }
@@ -52,7 +52,7 @@ public class EnemyManager : MonoBehaviour
 
     public void EnemyDied()
     {
-        gamemanager.point += 5;
+        // gamemanager.point += 5;
         currentEnemyCount--;
     }
 
