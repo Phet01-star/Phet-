@@ -11,7 +11,10 @@ public class enemy : MonoBehaviour
             manager.EnemyDied();
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
     void OnCollisionEnter(Collision collision)
     {
         Destroy(this.gameObject);
