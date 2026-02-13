@@ -3,19 +3,21 @@ using System.Collections;
 
 public class EnemyManager : MonoBehaviour
 {
+    private Gamemanager gamemanager;
     public GameObject enemyPrefab;
     [SerializeField] private int maxEnemySpawn = 5;
     [SerializeField] private float spawnDelay = 2.0f;
     [Header("Spawn Settings")]
     [SerializeField] private float spawnHeight = 1.0f;
     [SerializeField] private Vector3 spawnCenter = Vector3.zero;
-    [SerializeField] private float spawnWidth = 50f;
-    [SerializeField] private float spawnDepth = 50f;
+    [SerializeField] private float spawnWidth = 100f;
+    [SerializeField] private float spawnDepth = 100f;
 
     private int currentEnemyCount = 0;
 
     void Start()
     {
+        // gamemanager = FindAnyObjectByType<Gamemanager>();
         // Start the infinite spawning loop
         StartCoroutine(SpawnRoutine());
     }
@@ -30,7 +32,7 @@ public class EnemyManager : MonoBehaviour
             }
 
             // Wait for a few seconds before trying to spawn again
-            yield return new WaitForSeconds(spawnDelay);
+            yield return new WaitForSeconds(spawnDelay / (1 + gamemanager.timeRunner * 0.01f));
         }
     }
 
@@ -50,6 +52,7 @@ public class EnemyManager : MonoBehaviour
 
     public void EnemyDied()
     {
+        // gamemanager.point += 5;
         currentEnemyCount--;
     }
 

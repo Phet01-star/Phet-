@@ -11,4 +11,9 @@ public class enemy : MonoBehaviour
             manager.EnemyDied();
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Destroy(this.gameObject);
+    }
 }
